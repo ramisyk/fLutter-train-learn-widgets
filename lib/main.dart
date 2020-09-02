@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:temelwidget/Screens/student_edit.dart';
 import 'package:temelwidget/models/student.dart';
 import 'package:temelwidget/Screens/student_add.dart';
 
@@ -84,7 +85,8 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => StudentAdd()));
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => StudentAdd(students)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StudentAdd(students)),).then((res) => setState((){}));//main e döndüğünde listeyi yeniden çizmesi için
                   },
                 ),
             ),
@@ -101,8 +103,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
                 onPressed: (){
-                  var mesaj = "Güncellendi";
-                  mesajGoster(context, mesaj);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudentEdit(selectedStudent)),).then((res) => setState((){}));//main e döndüğünde listeyi yeniden çizmesi için
                 },
               ),
             ),
